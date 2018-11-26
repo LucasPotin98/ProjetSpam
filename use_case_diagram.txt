@@ -1,0 +1,10 @@
+@startuml
+(Déterminer si un mail est un spam) as (UC1)
+(Ajouter un mail aux données d'apprentissage) as (UC2)
+
+:utilisateur:
+
+utilisateur -down-> (UC1)
+utilisateur -right-> (UC2)
+@enduml
+

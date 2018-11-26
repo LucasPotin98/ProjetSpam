@@ -1,0 +1,25 @@
+@startuml
+title Evaluation d'un mail
+
+
+actor utilisateur
+
+utilisateur -> Prédicteur: CalculerProbaSpam(mail)
+activate Prédicteur
+
+loop for each mot in mail
+
+Prédicteur -> TableProba : estPrésent(mot)
+activate TableProba
+TableProba --> Prédicteur 
+alt estPrésent(mot)
+Prédicteur -> TableProba: obtenirProba(mot)
+TableProba --> Prédicteur 
+deactivate TableProba
+else
+end
+end
+Prédicteur --> utilisateur
+
+deactivate Prédicteur
+@enduml
